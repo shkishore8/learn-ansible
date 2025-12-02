@@ -10,8 +10,8 @@
       ansible.builtin.debug:
         msg: x - {{ x }} url - {{ url }}
 
-- name: print variable from roles
+- name: Print variable from roles
   hosts: localhost
   connection: local
-  tasks:
+  roles:
     - demo
