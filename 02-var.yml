@@ -1,0 +1,11 @@
+- name: Print variable vars, vars_file
+  hosts: localhost
+  connection: local
+  vars:
+    x: 100
+  vars_files:
+    values.yml
+  tasks:
+    - name: Print variable x
+      ansible.builtin.debug:
+        msg: x - {{ x }} url - {{ url }}
