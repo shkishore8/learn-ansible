@@ -1,0 +1,5 @@
+- name: print variable from demo
+  hosts: localhost
+  connection: local
+  tasks:
+    - demo2
