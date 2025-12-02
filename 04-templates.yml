@@ -1,0 +1,21 @@
+- name: Test
+  hosts: localhost
+  connection: local
+  vars:
+    topics:
+      - Linux
+      - Shell
+      - Ansible
+    student:
+      name: Raju
+      age: 10
+  tasks:
+    - name: Copy
+      ansible.builtin.copy:
+        src: test.txt
+        dest: /tmp/file-copied.txt
+
+    - name: Template
+      ansible.builtin.template:
+        src: test.txt
+        dest: /tmp/template-copied.txt

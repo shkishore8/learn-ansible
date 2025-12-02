@@ -1,0 +1,24 @@
+- name: Handlers
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Sample task that can be changed
+      ansible.builtin.shell: uptime
+      notify: S1
+
+    - name: Sample task that is ok
+      ansible.builtin.copy:
+        content: '# This file was moved to /etc/other.conf'
+        dest: /tmp/test
+      notify: S2
+
+  handlers:
+    - name: S1
+      ansible.builtin.debug:
+        msg: S1
+    - name: S2
+      ansible.builtin.debug:
+        msg: S2
+
+
+

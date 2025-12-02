@@ -1,0 +1,22 @@
+- name: Register
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Sample task that can be changed
+      ansible.builtin.shell: uptime
+      register: S1
+
+    - name: Sample task that is ok
+      ansible.builtin.copy:
+        content: '# This file was moved to /etc/other.conf'
+        dest: /tmp/test
+      register: S2
+
+    - name: Print S1
+      ansible.builtin.debug:
+        msg: "{{ S1 }}"
+
+    - name: Print S2
+      ansible.builtin.debug:
+        msg: "{{ S2 }}"
+

@@ -1,0 +1,12 @@
+- name: Facts
+  hosts: localhost
+  connection: local
+  # If we are sure that our playbook no where we are using facts then we can disable collecting facts.
+  #gather_facts: false
+  tasks:
+    - name: Print Fact
+      ansible.builtin.debug:
+        msg: "{{ ansible_facts.default_ipv4.address }}"
+
+
+

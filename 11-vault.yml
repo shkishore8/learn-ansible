@@ -1,0 +1,24 @@
+- name: Vault Demo
+  hosts: localhost
+  connection: local
+  vars:
+    my_password: !vault |
+                           $ANSIBLE_VAULT;1.1;AES256
+                           38666632643539323230313938623537356232336262666136393637373039646333383539643436
+                           6637623932643863613834356464393861646337393265660a333964623766626163663065613665
+                           37626635323762616430643539366534326430306461636237366237363034373039656432396161
+                           3261383230613365660a376564356534363730363832303164373537363636346261656564343633
+                           6335
+  tasks:
+    - name: Print Password
+      ansible.builtin.debug:
+        msg: "{{ my_password }}"
+
+
+# ansible-vault encrypt_string "Abcd@123"
+# ansible-playbook 11-vault.yml
+# ansible-playbook 11-vault.yml --ask-vault-password
+## Store the password in file and use it
+# vi pass
+# ansible-playbook 11-vault.yml --vault-password-file=pass
+

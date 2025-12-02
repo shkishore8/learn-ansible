@@ -1,0 +1,16 @@
+Hello {{ student.name }},
+  Welcome to DevOps Training.
+{% if student.age > 20 %}
+  You are adult
+{% else %}
+  You are minor
+{% endif %}
+
+  Your registered age is {{ student.age }}
+
+{% for topic in topics %}
+  Topic Name in Training - {{ topic }}
+{% endfor %}
+
+
+
